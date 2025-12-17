@@ -1,30 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*========================================================= */
 /* --- 0. Variables (Facilite la gestion du Mode Sombre) --- */
 /* ========================================================= */
@@ -68,14 +41,35 @@ body {
     color: var(--texte-principal);
     transition: background-color 0.3s, color 0.3s;
     min-height: 100vh;
+    /* Espace de pied pour la nav_bas */
     padding-bottom: 70px;
 }
 
+/* Styles des conteneurs de vue (SPA) */
+.page_vue {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+    /* Assure que le contenu s'arrête au-dessus de la nav_bas */
+    padding-bottom: 80px; 
+    
+    /* Masqué par défaut sauf pour la vue principale */
+    display: none; 
+}
+
+/* L'ancien conteneur doit maintenant se comporter comme une page_vue */
 .contener {
     max-width: 450px;
     margin: 0 auto;
     padding: 0 15px;
 }
+
+/* Afficher la vue active */
+.page_vue.actif {
+    display: block;
+}
+
 
 .btn {
     background: none;
@@ -390,6 +384,7 @@ body {
     align-items: center;
     padding: 8px;
     cursor: pointer;
+    flex-grow: 1; /* Assure un espacement uniforme */
 }
 
 .nav_bas .nav_item.actif {
@@ -537,6 +532,10 @@ body {
     box-sizing: border-box;
     overflow-y: auto; 
     display: none; 
+    
+    /* Permet de centrer correctement le contenu sur grand écran */
+    max-width: 450px;
+    margin: 0 auto;
 }
 
 #page_profil.active {
@@ -613,4 +612,73 @@ body.profil_actif .nav_bas {
     background-color: transparent;
     color: var(--texte-principal);
     border: 1px solid var(--texte-secondaire);
+}
+
+/* ========================================================= */
+/* --- 4. Styles Spécifiques au Convertisseur (SWAP) --- */
+/* ========================================================= */
+
+.convertisseur {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.groupe_devise {
+    width: 100%;
+    background-color: var(--fond-secondaire);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid var(--bordure-legere);
+}
+
+.groupe_devise label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: var(--texte-secondaire);
+}
+
+.select_devise, .groupe_devise input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid var(--bordure-legere);
+    background-color: var(--fond-principal); 
+    color: var(--texte-principal);
+    font-size: 16px;
+}
+
+.groupe_devise input[readonly] {
+    opacity: 0.7;
+    cursor: default;
+}
+
+.inverseur {
+    background-color: var(--fond-principal);
+    color: var(--couleur-primaire);
+    border: 1px solid var(--couleur-primaire);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+    line-height: 1; 
+    margin: -10px 0; 
+    z-index: 5;
+}
+
+.btn_action_convertir {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--couleur-primaire);
+    color: var(--fond-secondaire); 
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
 }
