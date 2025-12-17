@@ -7,96 +7,51 @@
     <link rel="stylesheet" href="crypto.css">
 </head>
 
-
-
-
-
-
-
 <body class="dark">
-    <div class="contener">
+    
+    <div id="vue_principale" class="contener page_vue actif">
 
-       
-
-
-
-
-
-
-
-
-
-         <header class="header">
+        <header class="header">
             <button id="ouv_menu" class="btn icone param">⚙️</button>
-            <span class="nom_portfeuille">Portefeuille... ▼</span>
+            <span class="nom_portfeuille">wallet</span>
             <div class="icones_droit">
                 <button class="btn icone">📁</button>
                 <button class="btn icone">🔍</button>
             </div>
         </header>
 
+        <section class="solde_sec">
+            <h1 id="solde_principal" class="solde_p">
+                <span id="sdp">$</span><span id="mp">105.86</span> 
+            </h1>
 
-
-
-
-
-
-
-
-<!--❌❌❌❌❌❌❌❌❌❌❌❌❌ -->
-
-<!-- ici ya l'id de la devise et du solde pour pourvoir changzr les valeurs avec le backend-->
-
-
-<section class="solde_sec">
-    <h1 id="solde_principal" class="solde_p">
-        <span id="symbole_devise_p">$</span>105.86
-    </h1>
-
-    <p id="solde_secondaire" class="solde_s">
-        <span id="symbole_devise_s">$</span>105.86 (<span id="changement_pourcentage">93.58%</span>)
-    </p>
-</section>
-
-
-<!--❌❌❌❌❌❌❌❌❌❌❌❌❌ -->
-
-
-   
-
-
-
+            <p id="solde_secondaire" class="solde_s">
+                 <span id="sds">$</span><span id="ms">105.86</span> (<span id="cp">93.58%</span>)
+            </p>
+        </section>
 
         <section class="actions">
             <div class="action_item">
-                <button class="action_icone">↗️</button>
+                <button class="action_icone" data-cible="vue_retrait">↗️</button>
                 <span class="action_txt">Retrait</span>
             </div>
             <div class="action_item fund_princ">
-                <button class="action_icone fund_btn">+</button>
+                <button class="action_icone fund_btn" data-cible="vue_depot">+</button>
                 <span class="action_txt">Depôt</span>
             </div>
             <div class="action_item">
-                <button class="action_icone">🔄</button>
+                <button class="action_icone" data-cible="vue_swap">🔄</button>
                 <span class="action_txt">Swap</span>
             </div>
             <div class="action_item">
-                <button class="action_icone">🏛️</button>
+                <button class="action_icone" data-cible="vue_sell">🏛️</button>
                 <span class="action_txt">Sell</span>
             </div>
             <div class="action_item">
-                <button class="action_icone">🌱</button>
+                <button class="action_icone" data-cible="vue_earn">🌱</button>
                 <span class="action_txt">Earn</span>
             </div>
         </section>
-
-
-<!--❌❌❌❌❌❌❌❌❌❌❌❌❌ -->
-
-
-
-
-
 
         <div class="bande_info">
             <div class="icone_glob">🌐</div>
@@ -106,11 +61,6 @@
             </div>
             <button id="ferm_bande" class="btn ferm_bande_btn">✕</button>
         </div>
-
-
-<!--❌❌❌❌❌❌❌❌❌❌❌❌❌ -->
-
-
 
         <nav class="onglets_princ">
             <button class="onglet actif" data-cible="actions">Crypto</button>
@@ -157,17 +107,6 @@
             </div>
         </section>
 
-
-
-
-
-
-
-
-
-
-
-
         <section id="contenu_puissance" class="contenu_onglet">
             <p style="padding: 20px; text-align: center;">-- Contenu pour la Watchlist (Puissance) ici --</p>
             <div class="liste_produit">
@@ -182,23 +121,16 @@
                     </div>
                     <button class="btn acheter">Acheter</button>
                 </div>
-            </div> </section>
+            </div>
+        </section>
 
         <section id="contenu_nft" class="contenu_onglet">
             <p style="padding: 20px; text-align: center;">-- Contenu pour les NFTs ici --</p>
         </section>
-        
+
         <section id="contenu_autre" class="contenu_onglet">
             <p style="padding: 20px; text-align: center;">-- Contenu supplémentaire --</p>
         </section>
-
-
-
-<!--❌❌❌❌❌❌❌❌❌❌❌❌❌ -->
-
-
-
-
 
         <div class="cont_fund">
             <button class="fund_portfeuille">Fund your wallet</button>
@@ -210,107 +142,110 @@
         <button class="gerer_crypto">Manage crypto</button>
 
         <h2 class="titre_movers">Top movers</h2>
-
+    </div>
+    
+    <div id="vue_trending" class="page_vue">
+        <h2 class="titre_vue">📈 Tendances</h2>
+        <p class="texte_vue">Contenu des tendances...</p>
     </div>
 
+    <div id="vue_conversion" class="page_vue">
+        <h2 class="titre_vue">🔄 Conversion (Swap)</h2>
+        <p class="texte_vue">Interface d'échange de crypto...</p>
+    </div>
 
+    <div id="vue_earn" class="page_vue">
+        <h2 class="titre_vue">🌱 Earn (Gains)</h2>
+        <p class="texte_vue">Options pour générer des revenus...</p>
+    </div>
 
+    <div id="vue_retrait" class="page_vue">
+        <h2 class="titre_vue">↗️ Effectuer un Retrait</h2>
+        <p class="texte_vue">Formulaire et détails du retrait...</p>
+    </div>
+    
+    <div id="vue_depot" class="page_vue">
+        <h2 class="titre_vue">➕ Ajouter un Dépôt</h2>
+        <p class="texte_vue">Options de financement et adresses de dépôt...</p>
+    </div>
 
+    <div id="vue_swap" class="page_vue">
+        <h2 class="titre_vue">🔄 Échanger et Convertir</h2>
+        
+        <section class="convertisseur">
+            <div class="groupe_devise">
+                <label for="devise_depart">Je veux échanger :</label>
+                <select id="devise_depart" class="select_devise">
+                    <option value="btc">Bitcoin (BTC)</option>
+                    <option value="shiba">Shiba Inu (SHIB)</option>
+                    <option value="eur" selected>Euro (EUR)</option>
+                    <option value="xox">XOX Coin</option>
+                    <option value="usd">Dollar (USD)</option>
+                </select>
+                <input type="number" id="montant_depart" placeholder="Montant à convertir" value="100">
+            </div>
 
+            <button id="inverser_devises" class="btn icone inverseur">⇅</button>
 
-<!--❌❌❌❌❌❌❌❌❌❌❌❌❌ -->
-<!--❌❌❌page independante❌❌❌ -->
+            <div class="groupe_devise">
+                <label for="devise_arrivee">Contre :</label>
+                <select id="devise_arrivee" class="select_devise">
+                    <option value="btc">Bitcoin (BTC)</option>
+                    <option value="shiba" selected>Shiba Inu (SHIB)</option>
+                    <option value="eur">Euro (EUR)</option>
+                    <option value="xox">XOX Coin</option>
+                    <option value="usd">Dollar (USD)</option>
+                </select>
+                <input type="text" id="montant_arrivee" placeholder="Résultat de la conversion" readonly>
+            </div>
+            
+            <button id="btn_convertir" class="btn primaire btn_action_convertir">Convertir</button>
+        </section>
+    </div>
 
- <section id="page_profil" class="page_overlay">
+    <div id="vue_sell" class="page_vue">
+        <h2 class="titre_vue">🏛️ Vendre des Actifs</h2>
+        <p class="texte_vue">Procédure de vente d'actifs et transfert bancaire...</p>
+    </div>
+    
+    <section id="page_profil" class="page_overlay">
         <header class="entete_profil">
             <button id="ferm_profil" class="btn icone">✕</button>
             <h2>Mon Profil</h2>
         </header>
-
-
-
         <div class="contenu_profil">
-            <img id="profil_photo" src="https://i.postimg.cc/HkgGjgZ0/IMG_6982.jpg" alt="Photo de Profil" class="photo_profil">
-
-
-
-
+            <img id="profil_photo" src="https://i.postimg.cc/HkgGjgZ0/IMG-6982.jpg" alt="Photo de Profil" class="photo_profil">
             <div class="detail_profil">
                 <p><strong>ID Utilisateur :</strong> <span id="info_id">CR774321</span></p>
                 <p><strong>Nom d'utilisateur :</strong> <span id="info_nom">Crypto_Max_77</span></p>
                 <p><strong>Statut :</strong> <span id="info_statut">Vérifié ✅</span></p>
             </div>
         </div>
-
-
-
-
         <div class="actions_profil">
             <button class="btn primaire">Modifier le Profil</button>
             <button class="btn secondaire">Historique des transactions</button>
             <button id="btn_deco" class="btn alerte">Déconnexion</button>
-
-
         </div>
     </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--❌❌❌❌❌❌❌❌❌❌❌❌❌ -->
-
-
     <nav class="nav_bas">
-        <button class="nav_item actif"><span class="nav_icone">🏠</span><span class="nav_txt">Home</span></button>
-        <button class="nav_item"><span class="nav_icone">📈</span><span class="nav_txt">Trending</span></button>
-        <button class="nav_item"><span class="nav_icone">🔄</span><span class="nav_txt">conversion</span></button>
-        <button class="nav_item"><span class="nav_icone">🌱</span><span class="nav_txt">Earn</span></button>
-
-
-
-
-
-
-
-        <button class="nav_item" id="nav_profil_btn"><span class="nav_icone">👤</span><span class="nav_txt">Profile</span></button> </nav>
-
-
-
-
-<!--❌❌❌page independante❌❌❌ -->
+        <button class="nav_item actif" data-cible="vue_principale"><span class="nav_icone">🏠</span><span class="nav_txt">Home</span></button>
+        <button class="nav_item" data-cible="vue_trending"><span class="nav_icone">📈</span><span class="nav_txt">Trending</span></button>
+        <button class="nav_item" data-cible="vue_swap"><span class="nav_icone">🔄</span><span class="nav_txt">conversion</span></button>
+        <button class="nav_item" data-cible="vue_earn"><span class="nav_icone">🌱</span><span class="nav_txt">Earn</span></button>
+        <button class="nav_item" id="nav_profil_btn"><span class="nav_icone">👤</span><span class="nav_txt">Profile</span></button>
+    </nav>
 
     <div id="menu_lat" class="menu_lat">
         <div class="entete_menu">
             <h2>Paramètres</h2>
             <button id="ferm_menu" class="btn icone">✕</button>
         </div>
-
         <div class="contenu_menu">
             <div class="menu_item theme_switch">
                 <span>Mode Sombre / Mode Clair</span>
-                <button id="bouton_theme" class="bouton_theme">⭐️</button> </div>
-
+                <button id="bouton_theme" class="bouton_theme">⭐️</button>
+            </div>
             <div class="menu_deroul">
                 <button class="deroul_btn">
                     Sécurité et Confidentialité 🔒
@@ -322,7 +257,6 @@
                     <a href="#">Gérer les sessions</a>
                 </div>
             </div>
-
             <div class="menu_deroul">
                 <button class="deroul_btn">
                     999
@@ -334,7 +268,6 @@
                     <a href="#"> ??????</a>
                 </div>
             </div>
-
             <div class="menu_deroul">
                 <button class="deroul_btn">
                     Gestion du Compte 👤
@@ -346,7 +279,6 @@
                     <a href="#">Support et Aide</a>
                 </div>
             </div>
-
             <div class="menu_item statique">
                 <a href="#">Déconnexion</a>
             </div>
@@ -354,19 +286,6 @@
     </div>
 
     <div id="overlay" class="overlay"></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <script src="script.js"></script>
 </body>
