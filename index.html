@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portefeuille Crypto - Démo</title>
+    <title>NEW-FREEDOM</title>
     <link rel="stylesheet" href="crypto.css">
+
+
+<link rel="icon" href="https://i.postimg.cc/Rq5BjVBs/IMG-8100.jpg" type="image/png">
+
+
+
+
 </head>
 
 <body class="dark">
@@ -15,20 +22,41 @@
             <button id="ouv_menu" class="btn icone param">⚙️</button>
             <span class="nom_portfeuille">wallet</span>
             <div class="icones_droit">
-                <button class="btn icone">📁</button>
+               
                 <button class="btn icone">🔍</button>
             </div>
         </header>
 
-        <section class="solde_sec">
-            <h1 id="solde_principal" class="solde_p">
-                <span id="sdp">$</span><span id="mp">105.86</span> 
-            </h1>
 
-            <p id="solde_secondaire" class="solde_s">
-                 <span id="sds">$</span><span id="ms">105.86</span> (<span id="cp">93.58%</span>)
-            </p>
-        </section>
+
+
+
+
+
+     <section class="solde_sec" id="declencheur_vision" style="cursor: pointer;">
+    <h1 id="solde_principal" class="solde_p">
+        <span id="sdp">$</span><span id="mp">105.86</span> 
+    </h1>
+
+    <p id="solde_secondaire" class="solde_s">
+         <span id="sds">$</span><span id="ms">105.86</span> (<span id="cp">93.58%</span>)
+    </p>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <section class="actions">
             <div class="action_item">
@@ -44,12 +72,12 @@
                 <span class="action_txt">Swap</span>
             </div>
             <div class="action_item">
-                <button class="action_icone" data-cible="vue_sell">🏛️</button>
-                <span class="action_txt">Sell</span>
+                <button class="action_icone" data-cible="vue_sell">👥</button>
+                <span class="action_txt">invite</span>
             </div>
             <div class="action_item">
-                <button class="action_icone" data-cible="vue_earn">🌱</button>
-                <span class="action_txt">Earn</span>
+                <button class="action_icone" data-cible="vue_cadeau">🎁</button>
+                <span class="action_txt">Cadeau</span>
             </div>
         </section>
 
@@ -154,15 +182,166 @@
         <p class="texte_vue">Interface d'échange de crypto...</p>
     </div>
 
-    <div id="vue_earn" class="page_vue">
-        <h2 class="titre_vue">🌱 Earn (Gains)</h2>
-        <p class="texte_vue">Options pour générer des revenus...</p>
+
+
+
+
+
+
+
+<div id="vue_cadeau" class="page_vue">
+    <h2 class="titre_vue">🎁 Centre de Cadeaux</h2>
+
+    <div class="carte_cadeau_journalier">
+        <h3>Bonus Quotidien</h3>
+        <p>Revenez chaque jour pour gagner des poussières de crypto.</p>
+        <button id="btn_claim_daily" class="btn_cadeau_principal">Récupérer mon cadeau</button>
     </div>
 
-    <div id="vue_retrait" class="page_vue">
-        <h2 class="titre_vue">↗️ Effectuer un Retrait</h2>
-        <p class="texte_vue">Formulaire et détails du retrait...</p>
+    <div class="section_code_promo">
+        <h3>Code de Récompense</h3>
+        <div class="input_groupe_cadeau">
+            <input type="text" id="input_code_cadeau" placeholder="Entrez votre code ici...">
+            <button id="btn_valider_code">Valider</button>
+        </div>
     </div>
+
+    <div class="mes_recompenses">
+        <h3>Mes Gains Cadeaux</h3>
+        <div class="solde_cadeau_display" id="zone_masquer_cadeau" style="cursor:pointer;">
+            <span class="label_cadeau">Total gagné :</span>
+            <span class="montant_cadeau"><span id="valeur_cadeau">12.00</span> $</span>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="vue_earn" class="page_vue">
+    <h2 class="titre_vue">Ma Team</h2>
+
+    <div class="carte_equipe_stats" id="masquer_equipe" style="cursor: pointer;">
+        <p class="label_equipe">Commissions totales</p>
+        <h1 class="solde_equipe">
+            <span id="sd_team">$</span><span id="valeur_equipe">42.50</span>
+        </h1>
+        <p class="instruction_clic">Toucher pour masquer</p>
+    </div>
+
+    <div class="stats_grille">
+        <div class="stat_item">
+            <span class="stat_chiffre" id="nb_filleuls">12</span>
+            <span class="stat_label">Filleuls</span>
+        </div>
+        <div class="stat_item">
+            <span class="stat_chiffre" id="taux_bonus">5%</span>
+            <span class="stat_label">Bonus</span>
+        </div>
+    </div>
+
+    <h3 class="sous_titre">Dernières activités</h3>
+    <div class="liste_activite" id="liste_parrainage">
+        <p class="vide_info">Vos futurs filleuls apparaîtront ici.</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="vue_retrait" class="page_vue">
+    <h2 class="titre_vue">↗️ Retrait de fonds</h2>
+
+    <div id="etape_paiement">
+        <h3 class="sous_titre">Choisissez un moyen de retrait :</h3>
+        <div class="grille_paiement">
+            <div class="moyen_item" data-methode="Visa / Mastercard">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa">
+                <span>Carte Visa</span>
+            </div>
+            <div class="moyen_item" data-methode="PayPal">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+                <span>PayPal</span>
+            </div>
+            <div class="moyen_item" data-methode="Orange Money">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Orange_logo.svg" alt="Orange">
+                <span>Orange Money</span>
+            </div>
+            <div class="moyen_item" data-methode="MTN MoMo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/MTN_Logo.svg" alt="MTN">
+                <span>MTN Mobile</span>
+            </div>
+            <div class="moyen_item" data-methode="Wave">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Wave_logo.png" alt="Wave">
+                <span>Wave</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="etape_formulaire" style="display: none;">
+        <button id="btn_retour_retrait" class="btn_retour">← Retour</button>
+        <div class="info_methode">
+            Mode sélectionné : <strong id="nom_methode_choisie">---</strong>
+        </div>
+
+        <div class="form_groupe">
+            <label>Montant à retirer ($)</label>
+            <input type="number" id="montant_retrait" placeholder="Ex: 50">
+            <p class="note_input">Minimum : <strong>20.00 $</strong></p>
+        </div>
+
+        <div class="conditions_retrait">
+            <h4>Conditions de sécurité :</h4>
+            <ul>
+                <li id="cond_filleuls" class="incorrect">❌ Avoir parrainé au moins 2 personnes</li>
+                <li id="cond_minimum" class="incorrect">❌ Montant minimum de 20.00 $</li>
+            </ul>
+        </div>
+
+        <button id="btn_confirmer_retrait" class="btn_action_retrait">Confirmer le retrait</button>
+    </div>
+</div>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     <div id="vue_depot" class="page_vue">
         <h2 class="titre_vue">➕ Ajouter un Dépôt</h2>
@@ -203,10 +382,48 @@
         </section>
     </div>
 
-    <div id="vue_sell" class="page_vue">
-        <h2 class="titre_vue">🏛️ Vendre des Actifs</h2>
-        <p class="texte_vue">Procédure de vente d'actifs et transfert bancaire...</p>
+
+
+
+
+
+ <div id="vue_sell" class="page_vue">
+    <h2 class="titre_vue">Invitation</h2>
+    
+    <div class="carte_affiliation">
+        <p class="texte_instruction">Partagez votre code et gagnez des commissions sur chaque transaction de vos filleuls.</p>
+        
+        <div class="zone_code">
+            <span class="label_code">Votre code parrain :</span>
+            <div class="code_promo_container">
+                <span id="code_promo_display">CHARGEMENT...</span>
+                <button id="btn_copier_code" class="btn_copier">Copier</button>
+            </div>
+        </div>
+
+        <div class="instructions_parrainage">
+            <h3>Comment ça marche ?</h3>
+            <ul>
+                <li><span>1</span> Copiez votre code unique ci-dessus.</li>
+                <li><span>2</span> Envoyez-le à vos amis.</li>
+                <li><span>3</span> Recevez 40% de bonus sur leurs dépôts.</li>
+            </ul>
+        </div>
     </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     <section id="page_profil" class="page_overlay">
         <header class="entete_profil">
@@ -232,7 +449,7 @@
         <button class="nav_item actif" data-cible="vue_principale"><span class="nav_icone">🏠</span><span class="nav_txt">Home</span></button>
         <button class="nav_item" data-cible="vue_trending"><span class="nav_icone">📈</span><span class="nav_txt">Trending</span></button>
         <button class="nav_item" data-cible="vue_swap"><span class="nav_icone">🔄</span><span class="nav_txt">conversion</span></button>
-        <button class="nav_item" data-cible="vue_earn"><span class="nav_icone">🌱</span><span class="nav_txt">Earn</span></button>
+        <button class="nav_item" data-cible="vue_earn"><span class="nav_icone">⭐️</span><span class="nav_txt">Team</span></button>
         <button class="nav_item" id="nav_profil_btn"><span class="nav_icone">👤</span><span class="nav_txt">Profile</span></button>
     </nav>
 
