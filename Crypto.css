@@ -1,3 +1,452 @@
+
+
+/* Effet au survol de la zone de solde */
+.solde_sec {
+    transition: transform 0.1s active;
+    user-select: none; /* Empêche de sélectionner le texte en cliquant vite */
+}
+
+.solde_sec:active {
+    transform: scale(0.98); /* Petit effet de pression au clic */
+}
+
+
+
+
+
+
+
+
+/* --- Amélioration des Cartes Crypto --- */
+.liste_produit {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Espace entre les cartes */
+    padding: 15px 0;
+}
+
+.carte_produit {
+    background-color: var(--fond-secondaire);
+    border: 1px solid var(--bordure-legere) !important; /* On remplace la bordure basse par un contour */
+    border-radius: 16px;
+    padding: 15px !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.carte_produit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.img_produit {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px; /* Un peu moins rond pour un look moderne */
+    background-color: var(--fond-principal);
+}
+
+.nom_p {
+    font-size: 15px;
+    color: var(--texte-principal);
+}
+
+.prix_p {
+    font-size: 17px;
+    margin-top: 2px;
+}
+
+/* Style du bouton acheter à l'intérieur de la carte */
+.acheter {
+    background-color: var(--couleur-primaire) !important;
+    color: #000 !important;
+    border-radius: 12px !important;
+    border: none;
+    padding: 8px 16px !important;
+    font-size: 13px;
+    transition: opacity 0.2s;
+}
+
+.acheter:hover {
+    opacity: 0.8;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* --- Style Affiliation / Invite --- */
+.carte_affiliation {
+    background: var(--fond-secondaire);
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid var(--bordure-legere);
+}
+
+.code_promo_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--fond-principal);
+    padding: 15px;
+    border-radius: 12px;
+    margin: 15px 0;
+    border: 1px dashed var(--couleur-primaire);
+}
+
+#code_promo_display {
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--couleur-primaire);
+    letter-spacing: 2px;
+}
+
+.btn_copier {
+    background: var(--couleur-primaire);
+    border: none;
+    padding: 5px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.instructions_parrainage h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.instructions_parrainage ul {
+    list-style: none;
+}
+
+.instructions_parrainage li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: var(--texte-secondaire);
+}
+
+.instructions_parrainage li span {
+    background: var(--couleur-primaire);
+    color: #000;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 12px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Page Équipe (Anciennement Earn) --- */
+.carte_equipe_stats {
+    background: linear-gradient(135deg, var(--couleur-primaire), #ffd700);
+    padding: 30px 20px;
+    border-radius: 24px;
+    text-align: center;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.label_equipe {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.solde_equipe {
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.instruction_clic {
+    font-size: 10px;
+    opacity: 0.6;
+}
+
+.stats_grille {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat_item {
+    background: var(--fond-secondaire);
+    padding: 15px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid var(--bordure-legere);
+}
+
+.stat_chiffre {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--texte-principal);
+}
+
+.stat_label {
+    font-size: 12px;
+    color: var(--texte-secondaire);
+}
+
+.sous_titre {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Style Section Cadeau --- */
+.carte_cadeau_journalier {
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn_cadeau_principal {
+    background: white;
+    color: #6366f1;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: bold;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.input_groupe_cadeau {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#input_code_cadeau {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid var(--bordure-legere);
+    background: var(--fond-secondaire);
+    color: var(--texte-principal);
+}
+
+#btn_valider_code {
+    background: var(--couleur-primaire);
+    border: none;
+    padding: 0 15px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.solde_cadeau_display {
+    background: var(--fond-secondaire);
+    padding: 20px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--bordure-legere);
+    margin-top: 10px;
+}
+
+.montant_cadeau {
+    font-weight: bold;
+    color: var(--couleur-primaire);
+    font-size: 18px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Style Page Retrait --- */
+.grille_paiement {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.moyen_item {
+    background: var(--fond-secondaire);
+    border: 1px solid var(--bordure-legere);
+    padding: 20px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.moyen_item:hover {
+    border-color: var(--couleur-primaire);
+    background: var(--fond-hover);
+}
+
+.moyen_item img {
+    height: 30px;
+    max-width: 80px;
+    object-fit: contain;
+}
+
+.moyen_item span {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* Formulaire et Conditions */
+.btn_retour {
+    background: none;
+    border: none;
+    color: var(--couleur-primaire);
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.info_methode {
+    background: var(--fond-secondaire);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.conditions_retrait {
+    background: var(--fond-principal);
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.conditions_retrait h4 { font-size: 14px; margin-bottom: 10px; }
+.conditions_retrait ul { list-style: none; }
+.conditions_retrait li { font-size: 13px; margin-bottom: 5px; }
+
+.conditions_retrait li.correct { color: var(--couleur-primaire); }
+.conditions_retrait li.incorrect { color: var(--couleur-alerte); }
+
+.btn_action_retrait {
+    width: 100%;
+    padding: 15px;
+    background: var(--couleur-primaire);
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*========================================================= */
 /* --- 0. Variables (Facilite la gestion du Mode Sombre) --- */
 /* ========================================================= */
