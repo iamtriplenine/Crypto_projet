@@ -1,10 +1,88 @@
+
+
+
+// --- Cliquer sur le solde pour masquer/afficher ---
+const declencheurVision = document.getElementById('declencheur_vision');
+const mp = document.getElementById('mp'); 
+const ms = document.getElementById('ms'); 
+let soldeVisible = true;
+
+// On stocke les valeurs réelles une seule fois au chargement
+const valeurP = mp.textContent;
+const valeurS = ms.textContent;
+
+if (declencheurVision) {
+    declencheurVision.addEventListener('click', () => {
+        soldeVisible = !soldeVisible;
+        
+        if (!soldeVisible) {
+            mp.textContent = "****";
+            ms.textContent = "****";
+        } else {
+            mp.textContent = valeurP;
+            ms.textContent = valeurS;
+        }
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Taux de change statiques (par rapport à 1 USD, utilisé comme devise pivot)
 const TAUX_DE_CHANGE = {
     usd: 1.0,         // Dollar Américain (base)
     eur: 0.92,        // Euro (1 USD = 0.92 EUR)
     btc: 0.000015,    // Bitcoin (1 USD = 0.000015 BTC) - Environ 66k USD/BTC
     shiba: 40000.0,   // Shiba Inu (1 USD = 40000 SHIB)
-    xox: 15.0         // XOX Coin (1 USD = 15 XOX)
+    xox: 550.0         // XOX Coin (1 USD = 15 XOX)
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -358,4 +436,198 @@ document.addEventListener('DOMContentLoaded', () => {
     // if (montantDepartInput && deviseDepartSelect && deviseArriveeSelect && montantArriveeInput) {
     //     convertirDevise(); 
     // }
+
+
+
+// --- Logique d'Affiliation ---
+const codeDisplay = document.getElementById('code_promo_display');
+const btnCopier = document.getElementById('btn_copier_code');
+
+// Simulation d'un code unique (sera remplacé par le backend plus tard)
+const genererCodePromo = () => {
+    const user_id = document.getElementById('info_id')?.textContent || "USER";
+    return (user_id + "-2024").toUpperCase();
+};
+
+if (codeDisplay) {
+    codeDisplay.textContent = genererCodePromo();
+}
+
+if (btnCopier) {
+    btnCopier.addEventListener('click', () => {
+        const code = codeDisplay.textContent;
+        navigator.clipboard.writeText(code).then(() => {
+            btnCopier.textContent = "Copié !";
+            btnCopier.style.backgroundColor = "#fff";
+            setTimeout(() => {
+                btnCopier.textContent = "Copier";
+                btnCopier.style.backgroundColor = "var(--couleur-primaire)";
+            }, 2000);
+        });
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// --- Logique de masquage pour la page Équipe ---
+const zoneEquipe = document.getElementById('masquer_equipe');
+const valeurEquipe = document.getElementById('valeur_equipe');
+let equipeVisible = true;
+
+// On sauvegarde la valeur initiale
+const montantEquipeReel = valeurEquipe ? valeurEquipe.textContent : "0.00";
+
+if (zoneEquipe && valeurEquipe) {
+    zoneEquipe.addEventListener('click', () => {
+        equipeVisible = !equipeVisible;
+        
+        if (!equipeVisible) {
+            valeurEquipe.textContent = "****";
+        } else {
+            valeurEquipe.textContent = montantEquipeReel;
+        }
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// --- Logique Section Cadeau ---
+const zoneCadeau = document.getElementById('zone_masquer_cadeau');
+const valeurCadeau = document.getElementById('valeur_cadeau');
+const btnClaim = document.getElementById('btn_claim_daily');
+let cadeauVisible = true;
+
+const montantCadeauReel = valeurCadeau ? valeurCadeau.textContent : "0.00";
+
+if (zoneCadeau && valeurCadeau) {
+    zoneCadeau.addEventListener('click', () => {
+        cadeauVisible = !cadeauVisible;
+        valeurCadeau.textContent = cadeauVisible ? montantCadeauReel : "****";
+    });
+}
+
+if (btnClaim) {
+    btnClaim.addEventListener('click', () => {
+        btnClaim.textContent = "Reçu ! ✅";
+        btnClaim.disabled = true;
+        btnClaim.style.opacity = "0.7";
+        alert("Félicitations ! Vous avez reçu 0.50$ de bonus.");
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// --- Logique de Retrait ---
+const etapeChoix = document.getElementById('etape_paiement');
+const etapeForm = document.getElementById('etape_formulaire');
+const moyens = document.querySelectorAll('.moyen_item');
+const nomMethode = document.getElementById('nom_methode_choisie');
+const btnRetour = document.getElementById('btn_retour_retrait');
+
+// Éléments de vérification
+const inputMontant = document.getElementById('montant_retrait');
+const condMin = document.getElementById('cond_minimum');
+const condFilleuls = document.getElementById('cond_filleuls');
+const btnFinal = document.getElementById('btn_confirmer_retrait');
+
+// Simulation : On imagine que l'utilisateur a 1 seul filleul pour le test
+let nombreFilleulsActuel = 1; 
+
+// 1. Sélectionner un moyen
+moyens.forEach(m => {
+    m.addEventListener('click', () => {
+        const methode = m.getAttribute('data-methode');
+        nomMethode.textContent = methode;
+        etapeChoix.style.display = 'none';
+        etapeForm.style.display = 'block';
+    });
+});
+
+// 2. Retour
+btnRetour.addEventListener('click', () => {
+    etapeForm.style.display = 'none';
+    etapeChoix.style.display = 'block';
+});
+
+// 3. Vérification en temps réel
+inputMontant.addEventListener('input', () => {
+    const mnt = parseFloat(inputMontant.value);
+    
+    // Vérif Montant
+    if (mnt >= 20) {
+        condMin.textContent = "✅ Montant minimum de 20.00 $";
+        condMin.className = "correct";
+    } else {
+        condMin.textContent = "❌ Montant minimum de 20.00 $";
+        condMin.className = "incorrect";
+    }
+
+    // Vérif Filleuls
+    if (nombreFilleulsActuel >= 2) {
+        condFilleuls.textContent = "✅ Avoir parrainé au moins 2 personnes";
+        condFilleuls.className = "correct";
+    } else {
+        condFilleuls.textContent = "❌ Avoir parrainé au moins 2 personnes (Actuel: " + nombreFilleulsActuel + ")";
+        condFilleuls.className = "incorrect";
+    }
+
+    // Activer bouton si tout est OK
+    if (mnt >= 20 && nombreFilleulsActuel >= 2) {
+        btnFinal.style.cursor = "pointer";
+        btnFinal.style.opacity = "1";
+    } else {
+        btnFinal.style.cursor = "not-allowed";
+        btnFinal.style.opacity = "0.5";
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
